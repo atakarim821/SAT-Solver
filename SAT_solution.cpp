@@ -6,7 +6,6 @@ int main()
     SAT_SOLVER solver;
     std::string filename;
     filename = "DIMACS";
-    // cin >> filename;
     std::ifstream input_file(filename);
     if(input_file.is_open())
     {
