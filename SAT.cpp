@@ -141,11 +141,6 @@ int SAT_SOLVER::DPLL(CNF f)
     // Here I am using MOM's Heuristic to branch over the most constrained variable.
 
     int i = distance(f.frequency.begin(), max_element(f.frequency.begin()+1, f.frequency.end()));
-
-    // std::cout << "value of i is " << i << endl << "Frequencies\n";
-    // for(int j=1; j<f.frequency.size(); j++) std::cout <<j  << " " << f.frequency[j] << "\n";
-    // cout <<"\n=========================================\n" <<endl;
-
     for(int j = 1; j>=0 ;j--) // Assign j = 1 for +ve. Assign j= 0 for -ve.
     {
         CNF copied_formula = f;
@@ -198,17 +193,6 @@ void SAT_SOLVER::write_result(CNF& f, int result)
             output_file.close();
         }
     }
-
-    // if(result==Answer::Satisfied)
-    // {
-    //     std::cout  << "SAT\n";
-    //     for(int i=1; i<f.Assign.size(); i++)
-    //     {
-    //         int n = (f.Assign[i]==1)?i:(-1*i);
-    //         std::cout << n << " ";
-    //     }
-    // }
-    // else std::cout << "UNSAT\n";
 }
 
 void SAT_SOLVER::solve()
